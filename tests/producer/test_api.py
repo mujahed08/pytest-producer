@@ -11,7 +11,7 @@ fake.add_provider(profile)
 fake.add_provider(color)
 
 def test_producer():
-    for i in range(1000): 
+    for i in range(1000):
         simple = fake.simple_profile()
         logger.info(simple)
         logger.info(simple['username'])
@@ -27,6 +27,6 @@ def test_producer():
             }
         }
         logger.info(message)
-        response = requests.post("http://127.0.0.1:8002/producer", data=json.dumps(message))
+        response = requests.post("http://127.0.0.1:7002/producer", data=json.dumps(message))
         logger.info(response.json())
         assert response.status_code == 200
